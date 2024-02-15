@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Invalid Sign-in
+{% endblock %}
+
+{% block main %}
+Invalid sign in!
+Please retry!
+<form action="/login" method="GET">
+    <p>{{ error_message }} 403</p>
+    <button class="btn btn-primary" type="submit">Log In Again!</button>
+</form>
+{% endblock %}

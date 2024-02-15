@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Invalid Registration
+{% endblock %}
+
+{% block main %}
+
+<form action="/register" method="GET">
+    <p>Registration failed!
+        Please retry!</p>
+    <p>{{ error_message }} 403</p>
+    <button class="btn btn-primary" type="submit">Register Again!</button>
+</form>
+{% endblock %}

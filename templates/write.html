@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Write Diary
+{% endblock %}
+
+{% block main %}
+
+<form action="/write" method="POST" id="write-form">
+    <div class="form-group">
+        <p>The day that the symptoms started <input type="date" id="date-started" name="date" required></p>
+        <label for="time-onset">Time of symptom:</label>
+        <input id ="time-onset" name="time-onset" type="time" required/>
+    </div>
+    <div>
+        <p>The day that the symptoms ended: <input type="date" id="date-ended" name="date-ended" required></p>
+        <label for id="time-ended">Time ended:</label>
+        <input id="time-ended" name="time-ended" type="time" required/>
+
+    </div>
+    <div>
+        <div>
+            <label for="symptoms">Please write your symptoms:</label>
+        </div>
+        <textarea id="symptoms" name="symptoms" rows="5" col="40" required></textarea>
+    </div>
+    <div>
+        <p> {{error_message}} </p>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+
+</form>
+<!-- JavaScript to ensure user does not set date before symptom started -->
+<script>
+    let fDate = document.querySelector('#date-started');
+    let sDate = document.querySelector('#date-ended');
+
+    fDate.addEventListener('change', function() {
+        sDate.min = fDate.value;
+    });
+</script>
+{% endblock %}

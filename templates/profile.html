@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+{% block main %}
+ <h2 class="profile-welcome"> Welcome to your diary, {{ username }}! </h2>
+
+
+ {% for symptom in symptoms %}
+    <div class="timeline">
+        <div class="container right">
+            <div class="content">
+                <h2><span>{{symptom.date}} {{symptom.time_onset}}</span> - <span> {{symptom.date_ended}} {{symptom.time_ended}}</span></h2>
+             <p>{{symptom.symptoms}}</p>
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+{% endblock %}
