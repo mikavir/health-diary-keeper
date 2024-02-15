@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@500;600;700;800&display=swap');
+
+html, main {
+  background: rgba(225,255,254, 0.4);
+  background-size: cover;
+}
+
+nav .navbar-colour {
+  background: rgba(225,255,254, 1);
+}
+
+/* index page with sign up cover */
+#background-cover {
+    height: 600px;
+    max-width: 100%;
+    background: url("/static/images/image1.jpg") no-repeat 40% 60%;
+    background-size: cover;
+    animation-name: background-zoom;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+
+@keyframes background-zoom {
+    from {
+      transform: scale(1)
+    }
+    to {
+      transform: scale(1.1)
+    }
+}
+
+/*  navigation bar */
+nav .navbar-brand {
+    font-family: 'Source Sans 3', sans-serif;
+    letter-spacing: 4px;
+    color: #03009d;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+nav .navbar {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+nav.navbar-custom.border.navbar.navbar-expand-md.no-gutters {
+  z-index: 1;
+}
+
+.cover-text {
+  background: rgba(225,255,254, 0.4);
+  width: 70%;
+  position: absolute;
+  bottom: 210px;
+  right: 190px;
+  padding: 45px 20px;
+  border-radius: 15px;
+}
+
+
+.navbar-custom {
+  background-color: rgba(225,255,254, 0.4);
+}
+
+.nav-text {
+  color: #333;
+}
+
+.navbar-toggler-icon {
+  color: #03009d;
+}
+
+
+/* profile.html timeline css from ww3 schools*/
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #333;
+  top: 0;
+  bottom: 0;
+  left: 30%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  color: #fff;
+}
+
+.content h2 {
+  color: #8fb1d3;
+  font-size: 30px;
+
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #03009d;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the right */
+.right {
+  left: 5.5%;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: #03009d;
+  position: relative;
+  border-radius: 15px;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+    .timeline::after {
+      left: 31px;
+    }
+
+  /* Full-width containers */
+    .container {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+
+  /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+      left: 60px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+  /* Make sure all circles are at the same spot */
+    .left::after, .right::after {
+      left: 15px;
+    }
+
+  /* Make all right containers behave like the left ones */
+    .right {
+      left: 0%;
+    }
+  }
+
+  /* profile.html text css */
+
+  .profile-welcome {
+    font-family: 'Source Sans 3', sans-serif;
+    color: #333;
+    text-align: left;
+
+  }
+
+  /* forms  */
+
+.background{
+    width: 430px;
+    height: 520px;
+    position: relative;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+
+
+form {
+    height: 670px;
+    width: 520px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 25px 25px;
+}
+
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #333;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{ 
+    color: #e5e5e5;
+}
