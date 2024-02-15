@@ -1,6 +1,6 @@
 import os
+import sqlite3
 
-from cs50 import SQL
 from flask import (
     Flask,
     flash,
@@ -16,6 +16,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 from datetime import date, time, datetime
 
+
 # Configure application
 app = Flask(__name__)
 
@@ -28,7 +29,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///diary.db")
+db = "sqlite3.connect(diary.db)"
 
 
 # login required function, inspired from CS50 finance
