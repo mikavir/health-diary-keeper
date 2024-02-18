@@ -15,7 +15,13 @@ from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 from datetime import date, time, datetime
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import text
 
+
+
+
+db = SQLAlchemy() 
 
 # Configure application
 app = Flask(__name__)
@@ -29,7 +35,14 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = "sqlite3.connect(diary.db)"
+db_name = "diary.db"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_name
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+# initialize the app with Flask-SQLAlchemy
+db.init_app(app)
 
 
 # login required function, inspired from CS50 finance
@@ -56,11 +69,11 @@ def profile():
     # Write a table of date and time and duration of symptoms:
     user_id = session["user_id"]
 
-    symptoms = db.execute(
+    symptoms = db_name.execute(
         "SELECT * FROM symptoms WHERE user_id = ? ORDER BY date DESC", user_id
     )
 
-    username_db = db.execute("SELECT username from users where id = ?", user_id)
+    username_db = db_name.execute("SELECT username from users where id = ?", user_id)
     username = username_db[0]["username"]
 
     return render_template(
@@ -110,7 +123,7 @@ def register():
 
         try:
             # inserting into database
-            new_user = db.execute(
+            new_user = db_name.execute(
                 "INSERT INTO users (username, hash) VALUES(?, ?)",
                 username,
                 hash_password,
@@ -157,7 +170,7 @@ def login():
             return render_template("loginfail.html", error_message=error_message)
 
         # Query database for username
-        rows = db.execute(
+        rows = db_name.execute(
             "SELECT * FROM users WHERE username = ?", request.form.get("username")
         )
 
@@ -216,7 +229,7 @@ def write():
             return render_template("write.html", error_message=error_message)
 
         # Inserts data input into diary.db
-        db.execute(
+        db_name.execute(
             "INSERT INTO symptoms (user_id, date, time_onset, time_ended, symptoms, date_ended) VALUES (?, ?, ?, ?, ?, ?)",
             user_id,
             date,
@@ -261,7 +274,7 @@ def change_password():
         # find hash of password from database
         user_id = session["user_id"]
 
-        password_hash = db.execute("SELECT hash FROM users WHERE id = ?", user_id)
+        password_hash = db_name.execute("SELECT hash FROM users WHERE id = ?", user_id)
 
         if len(password_hash) != 1 or not check_password_hash(
             password_hash[0]["hash"], current_password
@@ -276,7 +289,7 @@ def change_password():
 
         # Generate new password hash and update database
         new_hash_password = generate_password_hash(new_password)
-        db.execute("UPDATE users SET hash = ? WHERE id = ?", new_hash_password, user_id)
+        db_name.execute("UPDATE users SET hash = ? WHERE id = ?", new_hash_password, user_id)
 
         # show flash for user feedback
         flash("Password Changed Succesfully!")
