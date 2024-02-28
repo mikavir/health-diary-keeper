@@ -15,7 +15,7 @@ I used [coolors.co](https://coolors.co/03009d-3ecfff-e1fffe-ffffff-333333) to ge
 
 This set of colours were chosen due to research completed. The colour blue is normally associated with trust and professionalism [1]. Using the set of colours will keep the website consistent with other medical websites.
 
-![screenshot](screenshot/cs50-colourschemeproject.png)
+![screenshot](documentation/cs50-colourschemeproject.png)
 
 # Typography
 I have used sans-serif from Google fonts.
@@ -26,38 +26,38 @@ Using FontAwesome will be used for visual representation.
 
 ## Index page:
 This is the main page users have to access before registering or logging in. It contains a hero-image taken from Pexels and a link to the register page with the hero image.
-![screenshot](screenshot/feature01.png)
+![screenshot](documentation/feature01.png)
 
 ## Register page:
 This is the registration page where a user can input new details. User input is validated to ensure that it is filled using HTML input required tags. However, if this tag is removed via chrome developer tools then SQL injections are prevented by security implemented by the back-end. It will render a template of an Invalid registration page with an error message.
-![screenshot](screenshot/feature02.png)
+![screenshot](documentation/feature02.png)
 
 ## Invalid Registration Page:
 This is the feedback page if registration has failed. This would be seen if the user does not match their password and confirmation password. This can also be seen if a chosen username already exists.
-![screenshot](screenshot/feature03.png)
+![screenshot](documentation/feature03.png)
 
 ## Log in page:
 This is the log in page where a user can input their details. User input is validated to ensure that it is filled using HTML input required tags. However, if this tag is removed via chrome developer tools then SQL injections are prevented by security implemented by the back-end. It will render a template of an Invalid log in page with an error message.
-![screenshot](screenshot/feature07.png)
+![screenshot](documentation/feature07.png)
 
 ## Invalid Log in page:
 This is the feedback page if the user has failed to log in. This would be seen if the user does not input their username or password correctly.
-![screenshot](screenshot/feature08.png)
+![screenshot](sdocumentation/feature08.png)
 
 ## Profile page:
 Only accessible once logged in. This contains a log of symptoms:
-![screenshot](screenshot/feature04.png)
+![screenshot](documentation/feature04.png)
 
 ## Write log page:
 Only accessible once logged in. This contains a form where users can input their symptoms, and the date and time it happened.
-![screenshot](screenshot/feature05.png)
+![screenshot](documentation/feature05.png)
 
 ## Change Password page:
 Only accessible once logged in. This contains a form that will allow the user to change their password.
-![screenshot](screenshot/feature06.png)
+![screenshot](documentation/feature06.png)
 
 If the user inputs the wrong password or does not complete the required fields then an error message is rendered.
-![screenshot](screenshot/feature09.png)
+![screenshot](documentation/feature09.png)
 
 ## *Future features*:
 Features to be added:
